@@ -1,0 +1,17 @@
+services:
+  navidrome-mcp:
+    image: ghcr.io/xcfa/navidrome-mcp:latest
+    build: .
+    container_name: navidrome-mcp
+    env_file: .env
+    ports:
+      - "8000:8000"
+    restart: unless-stopped
+    # If Navidrome runs in another compose project, join its network and use
+    # NAVIDROME_URL=http://navidrome:4533:
+    # networks: [navidrome]
+
+# networks:
+#   navidrome:
+#     external: true
+#     name: navidrome_default
